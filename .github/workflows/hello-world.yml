@@ -1,0 +1,22 @@
+name: Run Hello World Script Every Hour
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # This cron syntax means "every hour at minute 0"
+  workflow_dispatch:     # Allows manual triggering of the workflow
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Use the version of Python you need
+
+    - name: Run Hello World script
+      run: python hello.py
