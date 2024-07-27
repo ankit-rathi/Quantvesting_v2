@@ -1,7 +1,7 @@
 import os
 
 # Path to the counter file
-counter_file = 'counter.txt'
+counter_file = 'output/counter.txt'
 
 # Initialize counter
 if not os.path.exists(counter_file):
@@ -20,6 +20,6 @@ with open(counter_file, 'w') as f:
     f.write(str(counter))
 
 # Append the message to the output file
-output_file = 'output.txt'
+output_file = 'output/output.txt'
 with open(output_file, 'a') as f:
     f.write(f'hello world {counter}\n')
