@@ -28,3 +28,5 @@ jobs:
         git add output.txt counter.txt
         git commit -m "Update output.txt and counter.txt"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
