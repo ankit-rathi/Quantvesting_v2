@@ -2,7 +2,7 @@ name: Run Jupyter Notebook Daily
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight UTC
+    - cron: "0 9-16 * * 1-5"  # Runs every hour on weekdays from 9am to 4pm
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
