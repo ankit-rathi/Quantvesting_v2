@@ -25,13 +25,13 @@ jobs:
 
     - name: Run Jupyter Notebook
       run: |
-        jupyter nbconvert --to notebook --execute --inplace hello.ipynb
-        jupyter nbconvert --to html hello.ipynb
+        jupyter nbconvert --to notebook --execute --inplace myStocks_Portfolio_Analysis.ipynb
+        jupyter nbconvert --to html myStocks_Portfolio_Analysis.ipynb
 
     - name: Commit output file
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add hello.ipynb
-        git commit -m "Update hello.ipynb with latest execution results"
+        git add myStocks_Portfolio_Analysis.ipynb
+        git commit -m "Update myStocks_Portfolio_Analysis.ipynb with latest execution results"
         git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
