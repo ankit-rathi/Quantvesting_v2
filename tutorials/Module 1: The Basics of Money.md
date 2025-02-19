@@ -1,4 +1,4 @@
-# Smart Money Management & Quantvesting for Kids
+# Module 1: The Basics of Money
 
 ## Introduction
 
