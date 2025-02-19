@@ -9,7 +9,6 @@
 - **Why Save?** (Emergency fund, future goals, freedom)
 - **Piggy Bank to Bank Account** (Introducing banks, interest, and FD/RD)
 - **The Magic of Compounding** (Simple example with Rs. 100 growing over time)
-- **The 3-Year Rule** (Never invest what you need in the next 3 years)
 
 ## Module 3: Introduction to Investing
 - **Why Keeping Money in a Bank is Not Enough** (Inflation explained simply)
@@ -31,7 +30,8 @@
 - **Money Management Rules**  
   - Never invest borrowed money  
   - Never invest more than 3% in any single stock  
-  - Rotate money within portfolio based on risk-reward  
+  - Rotate money within portfolio based on risk-reward
+  - Never invest what you need in the next 3 years
 
 ## Module 6: Stock Entry & Exit Strategies
 - **When to Buy a Stock?** (Optimizing entry based on valuation and chart patterns)
