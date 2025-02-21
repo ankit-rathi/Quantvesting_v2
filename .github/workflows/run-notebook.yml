@@ -38,7 +38,6 @@ jobs:
 
   run-myProspects-analysis:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'  # Runs on schedule or manual trigger
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
