@@ -1,301 +1,139 @@
 # Quantvesting Decision Agent
 
-A decision intelligence system that applies the Quantvesting framework to investment analysis. The agent transforms unstructured information into structured insights, evaluates opportunities across key dimensions, and produces a reasoned investment view through an iterative decision loop.
-
-## 1. How to Structure This in Google Colab
-
-You’re not building a repo first—you’re building a **working system notebook**.
-
-Create a new notebook:
-
-**`quantvesting_agent.ipynb`**
-
-Structure it like this:
+A decision intelligence system that applies the Quantvesting framework to investment analysis using an agentic workflow.
 
 ---
 
-### Cell 1 — Install dependencies
+## 🧠 Why This Exists
 
-```python
-!pip install openai python-dotenv
+Most investment tools focus on data, models, or predictions.
+
+This project focuses on **decision quality**.
+
+It converts unstructured information into structured investment decisions through a repeatable system:
+
+**Gather → Structure → Evaluate → Critique**
+
+The goal is not to predict markets, but to improve how decisions are made.
+
+---
+
+## ⚙️ What This System Does
+
+Given a company, the system:
+
+1. Gathers relevant information  
+2. Structures pros and cons  
+3. Evaluates using the Quantvesting framework:
+   - Management Quality  
+   - Business Quality  
+   - Valuation Discipline  
+4. Critically reviews its own output  
+5. Scores and logs the decision  
+
+---
+
+## 🧩 System Architecture
+
+```
+
+Input → Context → Decision → Critique → Evaluation → Logging
+
+```
+
+This is not a single prompt, but a controlled decision loop with explicit stages and feedback.
+
+---
+
+## 🏗 Project Structure
+
+```
+
+quantvesting-agent/
+
+app/        → orchestration and API layer
+agents/     → decision and critique logic
+prompts/    → versioned prompt templates
+tools/      → data integration layer
+memory/     → context and state management
+evaluation/ → scoring and guardrails
+logs/       → audit trail
+notebooks/  → experimentation (non-production)
+
+````
+
+---
+
+## 🔄 Example Workflow
+
+**Input:** `TCS`
+
+- Gather company context  
+- Generate pros/cons  
+- Apply Quantvesting framework  
+- Produce investment thesis  
+- Critique assumptions  
+- Score output  
+- Log decision  
+
+---
+
+## 🚀 How to Run (MVP)
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run API
+uvicorn app.main:app --reload
+````
+
+Test in browser:
+
+```
+http://localhost:8000/analyze?company=TCS
 ```
 
 ---
 
-### Cell 2 — Setup API key (Colab way)
+## 🧠 Key Design Principles
 
-Avoid `.env` in Colab. Use:
-
-```python
-import os
-
-os.environ["OPENAI_API_KEY"] = "your_api_key_here"
-```
-
-👉 Later you can move to `.env` locally.
+* Decisions > predictions
+* Structure over intuition
+* Explicit reasoning over hidden logic
+* Self-critique as a core feature
+* Evaluation and logging are mandatory
 
 ---
 
-### Cell 3 — LLM wrapper
+## ⚠️ Limitations
 
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-def ask_llm(prompt):
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
-```
+* Relies on LLM-generated analysis (not financial advice)
+* Data layer is currently limited or simulated
+* Evaluation metrics are heuristic and evolving
 
 ---
 
-## 2. Build Agent Step-by-Step (separate cells)
+## 🔮 Future Work
 
-### Cell 4 — Gather Info
-
-```python
-def gather_info(company):
-    prompt = f"""
-    Provide a structured overview of {company}:
-    - Business model
-    - Revenue drivers
-    - Risks
-    - Industry trends
-    """
-    return ask_llm(prompt)
-```
+* Integrate real financial data sources
+* Improve evaluation with scoring models
+* Add portfolio-level decision logic
+* Introduce memory across decisions
 
 ---
 
-### Cell 5 — Pros & Cons
+## 👤 Author Note
 
-```python
-def analyze_pros_cons(info):
-    prompt = f"""
-    Based on the following information:
+This project is part of a broader effort to design decision systems that improve thinking in complex domains like investing and AI.
 
-    {info}
-
-    List:
-    Pros:
-    Cons:
-    """
-    return ask_llm(prompt)
-```
+It also serves as a hands-on exploration of agentic AI beyond chat-based interfaces.
 
 ---
 
-### Cell 6 — Evaluation
+## 🎯 Final Thought
 
-```python
-def evaluate_investment(pros_cons):
-    prompt = f"""
-    Based on the following analysis:
+This project is not about building an AI agent.
 
-    {pros_cons}
+It is about encoding a disciplined investment decision process into a repeatable system.
 
-    Provide:
-    - Investment thesis
-    - Risks
-    - Final recommendation (Buy / Avoid / Watch)
-    - Confidence level (Low/Medium/High)
-    """
-    return ask_llm(prompt)
-```
-
----
-
-### Cell 7 — Agent Loop
-
-```python
-def decision_agent(company):
-    print("Gathering info...")
-    info = gather_info(company)
-
-    print("Analyzing pros/cons...")
-    pros_cons = analyze_pros_cons(info)
-
-    print("Evaluating...")
-    decision = evaluate_investment(pros_cons)
-
-    return decision
-```
-
----
-
-### Cell 8 — Run it
-
-```python
-result = decision_agent("TCS")
-print(result)
-```
-
----
-
-## 3. Make It Interactive (High ROI)
-
-Instead of hardcoding:
-
-```python
-company = input("Enter company name: ")
-result = decision_agent(company)
-print(result)
-```
-
-👉 Now it becomes a usable tool.
-
----
-
-## 4. Add Self-Critique (this is where learning jumps)
-
-## Cell 9 — Improve Agent
-
-```python
-def refine_decision(company):
-    decision = decision_agent(company)
-
-    review_prompt = f"""
-    Critically review this investment decision:
-
-    {decision}
-
-    Identify flaws, missing risks, and biases.
-    """
-
-    review = ask_llm(review_prompt)
-
-    return decision, review
-```
-
----
-
-### Cell 10 — Run refinement
-
-```python
-decision, review = refine_decision("TCS")
-
-print("Decision:\n", decision)
-print("\nReview:\n", review)
-```
-
----
-
-## 5. Save Outputs (memory)
-
-```python
-with open("history.txt", "a") as f:
-    f.write(decision + "\n\n" + review + "\n\n")
-```
-
-👉 Download from Colab if needed.
-
----
-
-## 6. Upgrade to Quantvesting Logic (critical)
-
-Modify evaluation prompt:
-
-```python
-def evaluate_investment(pros_cons):
-    prompt = f"""
-    Based on the following analysis:
-
-    {pros_cons}
-
-    Evaluate using:
-    - Management Quality
-    - Business Quality
-    - Valuation Discipline
-
-    Provide:
-    - Investment thesis
-    - Key risks
-    - Final recommendation
-    """
-    return ask_llm(prompt)
-```
-
-👉 Now it aligns with your framework.
-
----
-
-## 7. Connect to GitHub
-
-In Colab:
-
-* File → Save a copy in GitHub
-* Or download `.ipynb` → push manually
-
-👉 Keep:
-
-* Notebook (execution)
-* README (your explanation)
-
----
-
-## 8. Common mistakes in Colab (avoid these)
-
-* ❌ Running everything in one cell
-* ❌ Not separating logic (hard to debug)
-* ❌ Overengineering too early
-* ❌ Adding APIs before mastering flow
-
----
-
-## What you’re actually learning
-
-Not “how to use OpenAI”
-
-But:
-
-```text
-Decision System Design
-+
-Agent Loop Thinking
-+
-Prompt as Control Logic
-```
-
----
-
-## When to move beyond Colab
-
-Only after:
-
-* You understand failure cases
-* You improve outputs intentionally
-* You want persistence + scale
-
-Then move to:
-
-* Python scripts
-* GitHub repo
-* Later → Kiro
-
----
-
-## Final advice
-
-Don’t treat this as:
-
-> “build an AI project”
-
-Treat it as:
-
-> **encode your investment thinking into a system**
-
----
-
-If you want next step, I can:
-
-* Convert this into a **clean GitHub-ready project structure**
-* Or help you build **real financial data integration (Screener, APIs, filings)**
-
-That’s where it becomes genuinely powerful.
-
-
-That’s where this becomes genuinely powerful.
