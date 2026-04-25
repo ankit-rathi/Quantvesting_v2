@@ -2,7 +2,7 @@
 
 A decision intelligence system that applies the Quantvesting framework to investment analysis. The agent transforms unstructured information into structured insights, evaluates opportunities across key dimensions, and produces a reasoned investment view through an iterative decision loop.
 
-## ⚙️ 1. How to Structure This in Google Colab
+## 1. How to Structure This in Google Colab
 
 You’re not building a repo first—you’re building a **working system notebook**.
 
@@ -14,7 +14,7 @@ Structure it like this:
 
 ---
 
-### 🧱 Cell 1 — Install dependencies
+### Cell 1 — Install dependencies
 
 ```python
 !pip install openai python-dotenv
@@ -22,7 +22,7 @@ Structure it like this:
 
 ---
 
-### 🔑 Cell 2 — Setup API key (Colab way)
+### Cell 2 — Setup API key (Colab way)
 
 Avoid `.env` in Colab. Use:
 
@@ -36,7 +36,7 @@ os.environ["OPENAI_API_KEY"] = "your_api_key_here"
 
 ---
 
-### 🧠 Cell 3 — LLM wrapper
+### Cell 3 — LLM wrapper
 
 ```python
 from openai import OpenAI
@@ -53,7 +53,7 @@ def ask_llm(prompt):
 
 ---
 
-## 🔍 2. Build Agent Step-by-Step (separate cells)
+## 2. Build Agent Step-by-Step (separate cells)
 
 ### Cell 4 — Gather Info
 
@@ -109,7 +109,7 @@ def evaluate_investment(pros_cons):
 
 ---
 
-### 🔁 Cell 7 — Agent Loop
+### Cell 7 — Agent Loop
 
 ```python
 def decision_agent(company):
@@ -127,7 +127,7 @@ def decision_agent(company):
 
 ---
 
-### ▶️ Cell 8 — Run it
+### Cell 8 — Run it
 
 ```python
 result = decision_agent("TCS")
@@ -136,7 +136,7 @@ print(result)
 
 ---
 
-## 🧠 3. Make It Interactive (High ROI)
+## 3. Make It Interactive (High ROI)
 
 Instead of hardcoding:
 
@@ -150,7 +150,7 @@ print(result)
 
 ---
 
-## ⚠️ 4. Add Self-Critique (this is where learning jumps)
+## 4. Add Self-Critique (this is where learning jumps)
 
 ## Cell 9 — Improve Agent
 
@@ -184,7 +184,7 @@ print("\nReview:\n", review)
 
 ---
 
-## 💾 5. Save Outputs (memory)
+## 5. Save Outputs (memory)
 
 ```python
 with open("history.txt", "a") as f:
@@ -195,7 +195,7 @@ with open("history.txt", "a") as f:
 
 ---
 
-## 🧩 6. Upgrade to Quantvesting Logic (critical)
+## 6. Upgrade to Quantvesting Logic (critical)
 
 Modify evaluation prompt:
 
@@ -223,7 +223,7 @@ def evaluate_investment(pros_cons):
 
 ---
 
-## 🔄 7. Connect to GitHub
+## 7. Connect to GitHub
 
 In Colab:
 
@@ -237,7 +237,7 @@ In Colab:
 
 ---
 
-## ⚠️ 8. Common mistakes in Colab (avoid these)
+## 8. Common mistakes in Colab (avoid these)
 
 * ❌ Running everything in one cell
 * ❌ Not separating logic (hard to debug)
@@ -246,7 +246,7 @@ In Colab:
 
 ---
 
-## 🧠 What you’re actually learning
+## What you’re actually learning
 
 Not “how to use OpenAI”
 
@@ -262,7 +262,7 @@ Prompt as Control Logic
 
 ---
 
-## 🚀 When to move beyond Colab
+## When to move beyond Colab
 
 Only after:
 
@@ -278,7 +278,7 @@ Then move to:
 
 ---
 
-## 🔥 Final advice
+## Final advice
 
 Don’t treat this as:
 
