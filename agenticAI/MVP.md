@@ -1,18 +1,12 @@
-> “This system can generate, evaluate, and log decisions reliably.”
+# MVP Philosophy 
 
-Nothing more.
-
----
-
-# MVP Philosophy (Don’t mess this up)
-
-Your goal is NOT:
+MVP goal is NOT:
 
 * scalability
 * multi-agent complexity
 * fancy UI
 
-Your goal is:
+Its goal is:
 
 ```text
 Reliable → Traceable → Evaluated decision output
