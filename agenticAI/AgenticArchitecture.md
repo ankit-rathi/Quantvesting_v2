@@ -1,4 +1,4 @@
-# Quantvesting Decision System — Production Architecture
+# Quantvesting Decision System — Agentic Architecture
 
 ```text
                           ┌──────────────────────────────┐
