@@ -2,7 +2,7 @@
 
 ---
 
-## 🧠 1. First Principle Shift
+## 1. First Principle Shift
 
 Your current model:
 
@@ -20,7 +20,7 @@ Data → Context → Decision Logic → Output → Evaluation → Audit
 
 ---
 
-## ⚙️ 2. High-Level Architecture
+## 2. High-Level Architecture
 
 Think in layers:
 
@@ -42,7 +42,7 @@ Storage & Audit Logs
 
 ---
 
-## 🧩 3. Project Structure (practical)
+## 3. Project Structure (practical)
 
 Your repo should evolve like this:
 
@@ -90,7 +90,7 @@ quantvesting-agent/
 
 ---
 
-## 🧠 4. Core Components You Must Design
+## 4. Core Components You Must Design
 
 ### 1. Orchestrator (Agent Loop)
 
@@ -159,7 +159,7 @@ You need:
 
 ---
 
-## 🔁 5. Agent Workflow (Enterprise)
+## 5. Agent Workflow (Enterprise)
 
 ```text
 User Query
@@ -179,7 +179,7 @@ Log everything
 
 ---
 
-## ⚠️ 6. What Changes vs Your Prototype
+## 6. What Changes vs Your Prototype
 
 | Prototype     | Enterprise              |
 | ------------- | ----------------------- |
@@ -191,7 +191,7 @@ Log everything
 
 ---
 
-## 🧠 7. Where Kiro Fits
+## 7. Where Kiro Fits
 
 Once structure is clear, Kiro helps with:
 
@@ -206,7 +206,7 @@ But:
 
 ---
 
-## 🚫 8. Biggest Mistakes in Enterprise AI
+## 8. Biggest Mistakes in Enterprise AI
 
 * ❌ Jumping to multi-agent hype
 * ❌ Ignoring evaluation layer
@@ -215,7 +215,7 @@ But:
 
 ---
 
-## 🎯 9. What “good” looks like
+## 9. What “good” looks like
 
 A strong system can:
 
@@ -226,7 +226,7 @@ A strong system can:
 
 ---
 
-## 🔥 Final Insight
+## Final Insight
 
 You are not building:
 
@@ -238,7 +238,7 @@ You are building:
 
 ---
 
-## 🧭 If you want next step
+## If you want next step
 
 I can help you:
 
